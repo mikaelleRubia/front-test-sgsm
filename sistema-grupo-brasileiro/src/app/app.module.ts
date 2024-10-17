@@ -22,7 +22,7 @@ import { CheckRequestsComponent } from './modules/feature/check-requests/compone
 import { MainProfileComponent } from './modules/core/profile/components/main-profile/main-profile.component';
 import { UserDataComponent } from './modules/core/profile/components/user-data/user-data.component';
 import { EditUserDataComponent } from './modules/core/profile/components/edit-user-data/edit-user-data.component';
-import { RequestDetailsComponent } from './modules/feature/request-details/component/request-details.component';
+import { RequestDetailsComponent } from './modules/feature/request-details/components/request-details/request-details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProfileRoutingModule } from './modules/core/profile/components/main-profile/profile-routing.module';
 import { MainCreateRequestComponent } from './modules/feature/create-request/components/main-create-request/main-create-request.component';
@@ -34,6 +34,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PhoneMaskDirective } from './modules/directives/phone-mask/phone-mask.directive';
 import { FullLuminousRequestComponent } from './modules/feature/create-request/components/full-luminous-request/full-luminous-request.component';
   
+import { AgencyBoardComponent } from './modules/feature/request-details/components/agency-board/agency-board.component';
+import { SignpostComponent } from './modules/feature/request-details/components/signpost/signpost.component';
+import { DialogBoxComponent } from './modules/feature/request-details/components/dialog-box/dialog-box.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +58,10 @@ import { FullLuminousRequestComponent } from './modules/feature/create-request/c
     MainCreateRequestComponent,
     ColorClassDirective,
     PhoneMaskDirective,
-    FullLuminousRequestComponent
+    FullLuminousRequestComponent,
+    AgencyBoardComponent,
+    SignpostComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,7 @@ import { FullLuminousRequestComponent } from './modules/feature/create-request/c
     }),
     ProfileRoutingModule,
     NgScrollbarModule,
-    
+
   ],
   providers: [
     provideHttpClient(withFetch()),

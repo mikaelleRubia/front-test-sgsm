@@ -4,7 +4,7 @@ import { CheckRequestsComponent } from './modules/feature/check-requests/compone
 import { CollaboratorSystemComponent } from './modules/feature/collaborator/collaborator-system/component/collaborator-system.component';
 import { MainProfileComponent } from './modules/core/profile/components/main-profile/main-profile.component';
 import { MainCreateRequestComponent } from './modules/feature/create-request/components/main-create-request/main-create-request.component';
-import { RequestDetailsComponent } from './modules/feature/request-details/component/request-details.component';
+import { RequestDetailsComponent } from './modules/feature/request-details/components/request-details/request-details.component';
 import { ResetPasswordComponent } from './modules/core/reset-password/component/reset-password.component';
 import { LoginComponent } from './modules/core/login/component/login.component';
 import { RecoveryPasswordComponent } from './modules/core/recovery-password/component/recovery-password.component';
@@ -36,7 +36,12 @@ const routes: Routes = [
   {
     path: 'colaboradores',
     component: CollaboratorSystemComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard] // Corrigido: fechamento do colchete
+  },
+  {
+    path: 'nova-solicitacao',
+    component: MainCreateRequestComponent,
+    // canActivate: [AuthGuard] // Corrigido: fechamento do colchete
   },
   {
     path: 'detalhes-solicitacao',
@@ -48,24 +53,24 @@ const routes: Routes = [
     component: MainProfileComponent,
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./modules/core/profile/components/main-profile/profile-routing.module').then(
-        (m) => m.ProfileRoutingModule
-      ),
+      import(
+        './modules/core/profile/components/main-profile/profile-routing.module'
+      ).then((m) => m.ProfileRoutingModule),
   },
   {
     path: 'meus-dados',
     redirectTo: 'perfil/meus-dados',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'editar',
     redirectTo: 'perfil/editar',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    redirectTo: 'detalhes-solicitacao',
+    pathMatch: 'full',
   },
   {
     path: 'nova-solicitacao',
